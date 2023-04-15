@@ -21,14 +21,12 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * FROM job', (err, rows, fields) => {
-    if (err) throw err
-  
-    console.log('The job description is: ', rows[0].Job_Description)
-  })
-  
-connection.end();
-
+app.get("/api/empresa", async (req, res) => {
+    connection.query('SELECT * FROM job', (err, rows, fields) => {
+        if (err) throw err;
+        res.send(rows[0]);
+    });
+})
 
 app.get("/api/hello", (req, res) => {
     res.json({message: "Hello form server side!"});
