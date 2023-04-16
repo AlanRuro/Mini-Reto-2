@@ -22,26 +22,25 @@ const connection = mysql.createConnection({
 connection.connect();
 
 app.get("/api/empresa", async (req, res) => {
-    connection.query('SELECT * FROM job', (err, rows, fields) => {
+    let sqlQuery = 'SELECT * FROM job';
+    connection.query(sqlQuery, (err, rows) => {
         if (err) throw err;
-        res.send(rows[0]);
+        res.send(rows);
+    });
+})
+
+app.get("/api/job/:id", async (req, res) => {
+    const userId = req.params.id;
+    const values = [userId];
+    let sql = 'SELECT * FROM job WHERE Job_Code = ?'
+    connection.query(sql, values, (err, row) => {
+        if (err) throw err;
+        res.send(row);
     });
 })
 
 app.get("/api/hello", (req, res) => {
     res.json({message: "Hello form server side!"});
-})
-
-app.get("/api/cartoons", (req, res) => {
-    fs.readFile(__dirname + "/cartoons.json", "utf-8", (err, data) => {
-        console.log(data);
-        res.end(data);
-    })
-})
-
-app.post("/api/cartoons", (req, res) => {
-    console.log("El cuerpo y vida de la peticion: ", req.body);
-    res.sendStatus(200);
 })
 
 app.listen(PORT, () => {

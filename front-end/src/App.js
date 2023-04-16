@@ -5,9 +5,9 @@ import React from "react";
 function App() {
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
-    fetch("/api/hello")
+    fetch("/api/empresa")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => setData(data.Job_Description));
   }, []);
 
   return (
