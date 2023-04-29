@@ -1,31 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import CartoonList from './components/CartoonList/CartoonList';
 import React from "react";
 
 function App() {
-  const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState([]);
   React.useEffect(() => {
-    fetch("/api/empresa")
+    fetch("http://localhost:3001/api/v1/cartoons")
       .then((res) => res.json())
-      .then((data) => setData(data.Job_Description));
+      .then((data) => setData(data));
   }, []);
-
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {!data ? "Loading..." : data}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CartoonList cartoons={data} ></CartoonList>
     </div>
   );
 }
