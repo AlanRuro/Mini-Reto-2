@@ -51,7 +51,7 @@ const updateOneCartoon = async (req, res) => {
 const deleteOneCartoon = async (req, res) => {
     const cartoonId = req.params.cartoonId;
     try {
-        const wasDeleted = await cartoonService.deleteOneCartoon(cartoonId);
+        await cartoonService.deleteOneCartoon(cartoonId);
         res.sendStatus(204);
     } catch (error) {
         res.status(error?.status || 500)

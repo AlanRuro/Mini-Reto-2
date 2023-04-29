@@ -19,10 +19,29 @@ db.connect((error) => {
 
 const getAllCartoons = () => {
     return new Promise((resolve, reject) => {
-        let sqlQuery = "SELECT * FROM cartoons;";
+        let sqlQuery = "SELECT * FROM cartoons \
+        LEFT JOIN characters USING(cartoon_id);";
         db.query(sqlQuery, (error, rows) => {
             if (error) reject({ status: 500, message: error });
-            resolve(rows);
+            const cartoons = [];
+            rows.forEach((row) => {
+                let cartoon = cartoons.find((cartoon) => cartoon.cartoon_id === row.cartoon_id);
+                if (!cartoon) {
+                    cartoon = {
+                        cartoon_id: row.cartoon_id,
+                        cartoon_name: row.cartoon_name,
+                        cartoon_channel: row.cartoon_channel,
+                        characters: [],
+                    };
+                    cartoons.push(cartoon);
+                }
+                cartoon.characters.push({
+                    character_id: row.character_id,
+                    character_name: row.character_name,
+                    character_species: row.character_species,
+                });
+            });
+            resolve({ status: 200, data: cartoons });
         });
     });
 };
