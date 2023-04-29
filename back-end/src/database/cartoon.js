@@ -62,7 +62,7 @@ const deleteOneCartoon = (cartoonId) => {
         let sqlQuery = "DELETE FROM cartoons WHERE cartoon_id = ?;";
         db.query(sqlQuery, cartoonId, (error, row) => {
             if (error) reject({ status: 500, message: error });
-            resolve(row);
+            resolve();
         });
     });
 };

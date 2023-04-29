@@ -51,8 +51,8 @@ const updateOneCartoon = async (cartoonId, changes) => {
 
 const deleteOneCartoon = async (cartoonId) => {
     try {
-        const wasDeleted = await Cartoon.deleteOneCartoon(cartoonId);
-        return wasDeleted;
+        await Cartoon.deleteOneCartoon(cartoonId);
+        return;
     } catch (error) {
         throw error;
     }
