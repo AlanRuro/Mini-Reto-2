@@ -5,9 +5,9 @@ import React from "react";
 function App() {
   const [data, setData] = React.useState([]);
   React.useEffect(() => {
-    fetch("http://localhost:3001/api/v1/cartoons")
+    fetch("/v1/cartoons")
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => setData(data.data));
   }, []);
   
   return (
