@@ -23,12 +23,11 @@ const getOneCartoon = async (req, res) => {
     }
 };
 
-const createNewCartoon = (req, res) => {
+const createNewCartoon = async (req, res) => {
     const newCartoon = req.body;
     try {
-        const createdCartoon = cartoonService.createNewCartoon(newCartoon);
-        res.status(201)
-            .send({ status: "OK", data: createdCartoon });
+        await cartoonService.createNewCartoon(newCartoon);
+        res.sendStatus(201);
     } catch (error) {
         res.status(error?.status || 500)
             .send({ status: "FAILED", data: { error: error?.messsage || error } });

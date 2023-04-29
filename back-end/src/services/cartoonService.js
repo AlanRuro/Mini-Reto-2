@@ -25,8 +25,8 @@ const createNewCartoon = async (newCartoon) => {
         keys.forEach((key) => {
             newCartoonData.push(newCartoon[key]);
         });
-        const createdCartoon = await Cartoon.createNewCartoon(newCartoonData);
-        return createdCartoon;
+        await Cartoon.createNewCartoon(newCartoonData);
+        return;
     } catch (error) {
         throw error;
     }
@@ -34,7 +34,15 @@ const createNewCartoon = async (newCartoon) => {
 
 const updateOneCartoon = async (cartoonId, changes) => {
     try {
-        await Cartoon.updateOneCartoon(cartoonId, changes);
+        let values = [];
+        let columns = "";
+        for (const key in changes) {
+            columns += `${key} = ?, `;
+            values.push(changes[key]);
+        }
+        values.push(cartoonId);
+        columns = columns.slice(0, -2);
+        await Cartoon.updateOneCartoon(columns, values);
         return;
     } catch (error) {
         throw error;

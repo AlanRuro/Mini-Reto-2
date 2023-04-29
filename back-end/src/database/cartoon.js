@@ -39,26 +39,17 @@ const getOneCartoon = (cartoonId) => {
 
 const createNewCartoon = (newCartoon) => {
     return new Promise((resolve, reject) => {
-        let sqlQuery = "INSERT INTO cartoons(cartoon_name, cartoon_channel) VALUES (?, ?);\
-        SELECT * FROM Cartoons WHEN cartoon_id = LAST_INSERT_ID();";
+        let sqlQuery = "INSERT INTO cartoons(cartoon_name, cartoon_channel) VALUES (?, ?);";
         db.query(sqlQuery, newCartoon, (error, row) => {
             if (error) reject({ status: 500, message: error });
-            resolve(row);
+            resolve();
         });
     });
 };
 
-const updateOneCartoon = (cartoonId, changes) => {
+const updateOneCartoon = (columns, values) => {
     return new Promise((resolve, reject) => {
-        let sqlQuery = "UPDATE cartoons SET ";
-        let values = [];
-        for (const key in changes) {
-            sqlQuery += `${key} = ?, `;
-            values.push(changes[key]);
-        }
-        sqlQuery = sqlQuery.slice(0, -2);
-        sqlQuery += " WHERE cartoon_id = ?;";
-        values.push(cartoonId);
+        let sqlQuery = "UPDATE cartoons SET " + columns + " WHERE cartoon_id = ?;";
         db.query(sqlQuery, values, (error, result) => {
             if (error) reject({ status: 500, message: error });
             resolve();
