@@ -15,6 +15,7 @@ const getAllCartoons = () => {
                         cartoon_id: row.cartoon_id,
                         cartoon_name: row.cartoon_name,
                         cartoon_channel: row.cartoon_channel,
+                        cartoon_image: row.cartoon_image,
                         characters: [],
                     };
                     cartoons.push(cartoon);
@@ -23,6 +24,7 @@ const getAllCartoons = () => {
                     character_id: row.character_id,
                     character_name: row.character_name,
                     character_species: row.character_species,
+                    character_image: row.character_image
                 });
             });
             resolve({ status: 200, data: cartoons });

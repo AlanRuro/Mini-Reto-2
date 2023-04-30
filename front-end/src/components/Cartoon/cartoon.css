@@ -1,52 +1,61 @@
 .cartoon-container {
-    background-color: #455d7a;
-    padding: 20px;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-    border: 2px solid #333;
-    border-radius: 10px;
-  }
-  .cartoon-container:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-  }
-  .cartoon-name {
-    font-size: 30px;
-    font-weight: bold;
-    color: #e3e3e3;
-  }
-  .cartoon-channel {
-    font-size: 20px;
-    color: #f95959;
-  }
-  .characters-container {
-    border: 1px solid;
-    background-color: beige;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .characters-container img {
-    width: 50px;
-    background-color: orange;
-    margin: 10px;
-    padding: 5px;
-  }
-  .characters-container .cntr {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .characters {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 7px;
-    height: 25px;
-    width: 100px;
-    background-color: rgb(250, 123, 76);
-  }
-  img {
-    width: 200px;
-  }
+  background-color: #455d7a;
+  padding: 20px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 2px solid #333;
+  border-radius: 10px;
+}
+
+.cartoon-container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.cartoon-name {
+  font-size: 30px;
+  font-weight: bold;
+  color: #e3e3e3;
+}
+
+.cartoon-channel {
+  font-size: 20px;
+  color: #f95959;
+}
+
+.characters-container {
+  border: 1px solid;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.characters-container img {
+  width: 50px;
+  background-color: orange;
+  margin: 10px;
+  padding: 5px;
+}
+
+.characters-container .cntr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.characters {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 7px;
+  height: 25px;
+  width: 100px;
+  background-color: rgb(250, 123, 76);
+}
+
+.cartoon-image {
+  width: 400px;
+  height: 200px;
+}
