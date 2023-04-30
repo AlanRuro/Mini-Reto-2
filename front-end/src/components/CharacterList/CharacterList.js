@@ -1,15 +1,15 @@
 import React from "react";
-//import "./cartoonList.css";
 import Character from "../Character/Character";
 import './characterList.css';
 
 function CharacterList({ characters }) {
     return (
-            <div >
-                {characters.map((character, index) => {
-                    return <Character key={index} character={character} />;
-                })}
-            </div>
+        <div className="characters-list">
+            <p className="characters-title">Characters</p>
+            {characters.map((character, index) => {
+                return <Character key={index} character={character} />;
+            })}
+        </div>
     );
 }
 
