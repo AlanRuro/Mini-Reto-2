@@ -1,0 +1,15 @@
+.character-container {
+    display: flex;
+    align-content: center;
+    margin-top: 10px;
+}
+
+.character-description {
+    flex: 1;
+}
+
+.character-image {
+    width: 100px;
+    height: 110px;
+
+}
