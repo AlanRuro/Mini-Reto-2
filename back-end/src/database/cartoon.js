@@ -1,5 +1,6 @@
 const db = require('./db');
 
+
 const getAllCartoons = () => {
     return new Promise((resolve, reject) => {
         let sqlQuery = "SELECT * FROM cartoons \
