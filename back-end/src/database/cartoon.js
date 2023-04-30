@@ -1,21 +1,4 @@
-const mysql = require("mysql");
-
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'db_user',
-    password: 'admin123',
-    database: 'minireto2',
-    port: 3306,
-    multipleStatements: true
-});
-
-db.connect((error) => {
-    if (error) {
-        console.log("Error Connecting to DB");
-    } else {
-        console.log("Successfully Connected to DB");
-    }
-});
+const db = require('./db');
 
 const getAllCartoons = () => {
     return new Promise((resolve, reject) => {

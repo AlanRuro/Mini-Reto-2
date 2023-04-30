@@ -17,6 +17,7 @@ app.use("/api/v1/cartoons", v1CartoonRouter);
 
 app.listen(PORT, (error) => {
     if (error) {
+        console.error(error);
         console.log("Error...");
     } else {
         console.log(`Server listening on ${PORT}`);
