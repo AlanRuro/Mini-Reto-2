@@ -1,15 +1,23 @@
 .character-container {
-    display: flex;
-    align-content: center;
-    margin-top: 10px;
+  display: flex;
+  align-content: center;
+  margin-top: 10px;
 }
 
 .character-description {
-    flex: 1;
+  flex: 1;
 }
 
 .character-image {
-    width: 100px;
-    height: 110px;
+  width: 100px;
+  height: 110px;
+}
 
+.character-name {
+  color: #e95d72;
+}
+
+.character-species {
+  color: white;
+  font-size: large;
 }
