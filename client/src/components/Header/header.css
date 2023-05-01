@@ -1,13 +1,18 @@
 .title {
-    font-size: 23px;
-    font-family: 'Comic Sans MS', cursive;
-    color: #ffdd67;
-    padding: 5px;
-    border-radius: 5px;
-    width: 600px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
+  font-size: 23px;
+  font-family: 'Comic Sans MS', cursive;
+  color: #ffdd67;
+  padding: 5px;
+  border-radius: 5px;
+  width: 600px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: #ffdd67;
+}

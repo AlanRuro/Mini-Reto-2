@@ -11,6 +11,11 @@ No installation is required to view the website. Simply visit https://minireto2-
 ## Usage
 
 The website is easy to use and navigate. Use the search input area menu at the top of the page to filter the cartoons being showed. If you put your cursor over a card, it gets bigger.
+If you click in the title you get redirected to this github repository.
+
+## API Documentation
+
+In order to view the api documentation simply visit https://app.swaggerhub.com/apis/A01641426/Cartoon-Api/1.0.11
 
 ## Contributing
 

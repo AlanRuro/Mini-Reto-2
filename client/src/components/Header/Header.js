@@ -4,7 +4,7 @@ import "./header.css";
 function Header(props) {
   return (
     <div className="title">
-      <h1>{props.title}</h1>
+      <h1><a href="https://github.com/AlanRuro/Mini-Reto-2.git">{props.title}</a></h1>
     </div>
   );
 }
