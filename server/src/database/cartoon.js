@@ -37,6 +37,7 @@ const getOneCartoon = (cartoonId) => {
         let sqlQuery = "SELECT * FROM cartoons WHERE cartoon_id = ?;";
         db.query(sqlQuery, cartoonId, (error, row) => {
             if (error) reject({ status: 500, message: error });
+            if (row.length == 0) reject({ status: 404, message: "Cartoon Not Found"});
             resolve(row[0]);
         });
     });
@@ -55,8 +56,9 @@ const createNewCartoon = (newCartoon) => {
 const updateOneCartoon = (columns, values) => {
     return new Promise((resolve, reject) => {
         let sqlQuery = "UPDATE cartoons SET " + columns + " WHERE cartoon_id = ?;";
-        db.query(sqlQuery, values, (error, result) => {
+        db.query(sqlQuery, values, (error, row) => {
             if (error) reject({ status: 500, message: error });
+            if (!row["affectedRows"]) reject({ status: 404, message: "Cartoon Not Found"});
             resolve();
         });
     });
@@ -67,6 +69,7 @@ const deleteOneCartoon = (cartoonId) => {
         let sqlQuery = "DELETE FROM cartoons WHERE cartoon_id = ?;";
         db.query(sqlQuery, cartoonId, (error, row) => {
             if (error) reject({ status: 500, message: error });
+            if (!row["affectedRows"]) reject({ status: 404, message: "Cartoon Not Found"});
             resolve();
         });
     });
